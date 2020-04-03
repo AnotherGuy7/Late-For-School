@@ -1,0 +1,5 @@
+C:\Users\Jayson\Downloads\Projects- Godot\SmallGames\LateForSchool\.mono\temp\bin\Tools\LateForSchool.dll
+C:\Users\Jayson\Downloads\Projects- Godot\SmallGames\LateForSchool\.mono\temp\bin\Tools\LateForSchool.pdb
+C:\Users\Jayson\Downloads\Projects- Godot\SmallGames\LateForSchool\.mono\temp\obj\Tools\LateForSchool.csprojAssemblyReference.cache
+C:\Users\Jayson\Downloads\Projects- Godot\SmallGames\LateForSchool\.mono\temp\obj\Tools\LateForSchool.dll
+C:\Users\Jayson\Downloads\Projects- Godot\SmallGames\LateForSchool\.mono\temp\obj\Tools\LateForSchool.pdb

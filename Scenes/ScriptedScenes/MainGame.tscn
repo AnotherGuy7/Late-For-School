@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/MainTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Backgrounds/BlueSky.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Misc/Bus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Scenes/MainGame.cs" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BeginningTransitionAnim"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BeginningCamera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BeginningCamera:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BeginningCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2412, 403.148 ), Vector2( 1400, 250 ), Vector2( 395, 403.148 ) ]
+}
 
 [node name="MainGame" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 scale = Vector2( 4, 4 )
@@ -28,3 +71,22 @@ tile_data = PoolIntArray( 393216, 2, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 395.795, 403.148 )
+
+[node name="Bus" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2407.29, 414.159 )
+mode = 1
+mass = 0.00102041
+
+[node name="BeginningTransition" type="AnimationPlayer" parent="."]
+autoplay = "BeginningTransitionAnim"
+method_call_mode = 1
+anims/BeginningTransitionAnim = SubResource( 1 )
+
+[node name="BeginningCamera" type="Camera2D" parent="."]
+position = Vector2( 395, 403.148 )
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]

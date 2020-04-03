@@ -9,11 +9,16 @@ public class Player : KinematicBody2D
 	const int maxGravity = 1000;
 	public float yVel = 0f;
 
+	[Export(PropertyHint.Flags)]
+	private bool cameraCurrent = false;
+
 	public AnimatedSprite playerAnim;
+	public Camera2D camera;
 
 	public override void _Ready()
 	{
 		playerAnim = (AnimatedSprite)GetNode("PlayerAnimation");
+		camera = (Camera2D)GetNode("PlayerCam");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -59,7 +64,6 @@ public class Player : KinematicBody2D
 		}
 		velocity.y = yVel;
 
-		GD.Print(velocity.y + "; " + IsOnFloor());
 		MoveAndSlide(velocity, new Vector2(0, -1));
 	}
 }

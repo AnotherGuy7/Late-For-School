@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Misc/Bus.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Misc/Bus.cs" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BusAnim"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bus:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 60.9032, 31.359 )
+
+[node name="Bus" type="RigidBody2D"]
+position = Vector2( 4.22589, 2.60345 )
+scale = Vector2( 4, 4 )
+script = ExtResource( 2 )
+
+[node name="Bus" type="Sprite" parent="."]
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
+
+[node name="BusAnim" type="AnimationPlayer" parent="."]
+autoplay = "BusAnim"
+method_call_mode = 1
+anims/BusAnim = SubResource( 1 )
+
+[node name="BusShape" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.01, 0.01 )
+shape = SubResource( 2 )
