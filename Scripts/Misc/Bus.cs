@@ -3,11 +3,7 @@ using System;
 
 public class Bus : RigidBody2D
 {
-	public float constantVelX = 50f;
-	public override void _Ready()
-	{
-		
-	}
+	public float constantVelX = 250f;
 
 	public override void _PhysicsProcess(float delta)
 	{

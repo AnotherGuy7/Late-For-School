@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/UI/Options_Pressed.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/title_10.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/title_11.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Misc/Background.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/SpriteFrames/MainBG.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Music/Title.wav" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/UI/StandardPanel.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/UI/title_02.png" type="Texture" id=11]
@@ -37,13 +37,16 @@ animations = [ {
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 13 )
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 400.795, 298.486 )
-scale = Vector2( 5.06587, 6.41599 )
-texture = ExtResource( 8 )
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 400.795, 298.762 )
+scale = Vector2( 5.06587, 4.99258 )
+frames = ExtResource( 8 )
+animation = "MainBG"
+frame = 47
+playing = true
 
 [node name="Title" type="AnimatedSprite" parent="."]
-position = Vector2( 168.595, 84.4221 )
+position = Vector2( 168.595, 160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "title"
@@ -51,11 +54,14 @@ frame = 7
 playing = true
 
 [node name="VSplitContainer" type="HSeparator" parent="."]
-margin_left = 64.0531
-margin_top = 166.853
-margin_right = 144.053
-margin_bottom = 238.853
+margin_left = 90.0
+margin_top = 250.0
+margin_right = 170.0
+margin_bottom = 322.0
 rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="OptionsButton" type="TextureButton" parent="VSplitContainer"]
 margin_top = 42.0

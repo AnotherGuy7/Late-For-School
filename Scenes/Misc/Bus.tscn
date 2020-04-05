@@ -29,10 +29,8 @@ scale = Vector2( 4, 4 )
 script = ExtResource( 2 )
 
 [node name="Bus" type="Sprite" parent="."]
-scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 1 )
 hframes = 3
-frame = 1
 
 [node name="BusAnim" type="AnimationPlayer" parent="."]
 autoplay = "BusAnim"
@@ -40,5 +38,4 @@ method_call_mode = 1
 anims/BusAnim = SubResource( 1 )
 
 [node name="BusShape" type="CollisionShape2D" parent="."]
-scale = Vector2( 0.01, 0.01 )
 shape = SubResource( 2 )

@@ -9,16 +9,16 @@ public class Player : KinematicBody2D
 	const int maxGravity = 1000;
 	public float yVel = 0f;
 
-	[Export(PropertyHint.Flags)]
-	private bool cameraCurrent = false;
-
 	public AnimatedSprite playerAnim;
 	public Camera2D camera;
+	public static Player player;
 
 	public override void _Ready()
 	{
 		playerAnim = (AnimatedSprite)GetNode("PlayerAnimation");
 		camera = (Camera2D)GetNode("PlayerCam");
+		player = this;
+		
 	}
 
 	public override void _PhysicsProcess(float delta)

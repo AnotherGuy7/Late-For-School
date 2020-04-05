@@ -20,6 +20,10 @@ config/description="Late for school!"
 run/main_scene="res://Scenes/States/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=800
