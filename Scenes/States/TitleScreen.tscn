@@ -42,7 +42,7 @@ position = Vector2( 400.795, 298.762 )
 scale = Vector2( 5.06587, 4.99258 )
 frames = ExtResource( 8 )
 animation = "MainBG"
-frame = 47
+frame = 34
 playing = true
 
 [node name="Title" type="AnimatedSprite" parent="."]
@@ -50,7 +50,7 @@ position = Vector2( 168.595, 160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "title"
-frame = 7
+frame = 8
 playing = true
 
 [node name="VSplitContainer" type="HSeparator" parent="."]
@@ -71,7 +71,6 @@ texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 4 )
-texture_focused = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,7 +82,9 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 3 )
 texture_disabled = ExtResource( 3 )
-texture_focused = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )

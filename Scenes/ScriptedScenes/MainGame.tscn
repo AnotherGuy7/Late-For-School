@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/MainTileset.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/Scenes/MainGame.cs" type="Script" id=5]
 [ext_resource path="res://Sprites/Backgrounds/c.png" type="Texture" id=6]
 [ext_resource path="res://Tilesets/DecorationsTileset.tres" type="TileSet" id=7]
+[ext_resource path="res://Sprites/Obstacles/trash.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BeginningTransitionAnim"
@@ -45,8 +46,11 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2412, 403.148 ), Vector2( 395, 403.148 ) ]
+"values": [ Vector2( 8536.87, 403.148 ), Vector2( 395, 403.148 ) ]
 }
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.05536, 12.688 )
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 5 )
@@ -96,7 +100,7 @@ tile_data = PoolIntArray( 327705, 0, 0, 327707, 536870912, 0 )
 position = Vector2( 395.795, 403.148 )
 
 [node name="Bus" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2407.29, 414.159 )
+position = Vector2( 8536.87, 403.148 )
 mode = 3
 mass = 0.00102041
 
@@ -106,10 +110,50 @@ method_call_mode = 1
 anims/BeginningTransitionAnim = SubResource( 1 )
 
 [node name="BeginningCamera" type="Camera2D" parent="."]
-position = Vector2( 2412, 403.148 )
+position = Vector2( 8536.87, 403.148 )
 current = true
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
+
+[node name="TrashCan" type="Sprite" parent="."]
+position = Vector2( 2651.53, 440.421 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="TrashBody" type="StaticBody2D" parent="TrashCan"]
+
+[node name="TrashShape" type="CollisionShape2D" parent="TrashCan/TrashBody"]
+shape = SubResource( 2 )
+
+[node name="TrashCan2" type="Sprite" parent="."]
+position = Vector2( 3600, 440.421 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="TrashBody" type="StaticBody2D" parent="TrashCan2"]
+
+[node name="TrashShape" type="CollisionShape2D" parent="TrashCan2/TrashBody"]
+shape = SubResource( 2 )
+
+[node name="TrashCan3" type="Sprite" parent="."]
+position = Vector2( 4500, 440.421 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="TrashBody" type="StaticBody2D" parent="TrashCan3"]
+
+[node name="TrashShape" type="CollisionShape2D" parent="TrashCan3/TrashBody"]
+shape = SubResource( 2 )
+
+[node name="TrashCan4" type="Sprite" parent="."]
+position = Vector2( 4800, 440.421 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="TrashBody" type="StaticBody2D" parent="TrashCan4"]
+
+[node name="TrashShape" type="CollisionShape2D" parent="TrashCan4/TrashBody"]
+shape = SubResource( 2 )
 [connection signal="animation_finished" from="BeginningTransition" to="." method="_on_BeginningTransition_animation_finished"]

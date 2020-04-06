@@ -7,6 +7,6 @@ public class Bus : RigidBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
-		MoveLocalX(constantVelX * delta);
+		//MoveLocalX(constantVelX * delta);
 	}
 }

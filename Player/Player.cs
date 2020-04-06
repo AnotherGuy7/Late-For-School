@@ -12,11 +12,13 @@ public class Player : KinematicBody2D
 	public AnimatedSprite playerAnim;
 	public Camera2D camera;
 	public static Player player;
+	public AudioStreamPlayer2D jumpSound;
 
 	public override void _Ready()
 	{
 		playerAnim = (AnimatedSprite)GetNode("PlayerAnimation");
 		camera = (Camera2D)GetNode("PlayerCam");
+		jumpSound = (AudioStreamPlayer2D)GetNode("JumpSound");
 		player = this;
 		
 	}
@@ -45,6 +47,7 @@ public class Player : KinematicBody2D
 			if (Input.IsActionJustPressed("jump"))
 			{
 				yVel = jumpForce;
+				jumpSound.Play();
 			}
 		}
 		if (!IsOnFloor())
